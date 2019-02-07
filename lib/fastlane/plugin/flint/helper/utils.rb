@@ -13,8 +13,7 @@ module Fastlane
       def self.activate(keystore_name, alias_name, password, keystore_properties_path)
         template = File.read("#{Flint::ROOT}/assets/KeystorePropertiesTemplate")
         template.gsub!("[[STORE_FILE]]", keystore_name)
-        template.gsub!("[[KEY_ALIAS]]", alias_name)
-        template.gsub!("[[PASSWORD]]", password)
+        #template.gsub!("[[KEY_ALIAS]]", alias_name)
         File.write(keystore_properties_path, template)
 
         # We could test that the required lines are added to build.gradle
